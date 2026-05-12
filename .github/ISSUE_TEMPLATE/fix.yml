@@ -1,0 +1,25 @@
+name: 🐛 Bug Fix
+description: 버그 수정
+title: '[FIX] '
+labels: ['bug']
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 🎯 요약
+      description: 발생한 버그를 한 줄로 요약해주세요
+      placeholder: 예) 로그인 버튼 클릭 시 오류 발생
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: ✅ 체크리스트
+      description: 수정해야 할 작업 목록
+      value: |
+        - [ ] 버그 원인 파악
+        - [ ] 수정 작업
+        - [ ] 테스트 확인
+    validations:
+      required: true

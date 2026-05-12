@@ -1,0 +1,25 @@
+name: 🔧 Chore
+description: 빌드, 설정, 의존성 등 기타 작업
+title: '[CHORE] '
+labels: ['chore']
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 🎯 요약
+      description: 작업 내용을 한 줄로 요약해주세요
+      placeholder: 예) ESLint 설정 변경 및 패키지 업데이트
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: ✅ 체크리스트
+      description: 처리해야 할 작업 목록
+      value: |
+        - [ ] 작업 1
+        - [ ] 작업 2
+        - [ ] 작업 3
+    validations:
+      required: true

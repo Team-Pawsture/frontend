@@ -1,0 +1,25 @@
+name: ♻️ Refactor
+description: 코드 리팩토링
+title: '[REFACTOR] '
+labels: ['refactor']
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 🎯 요약
+      description: 리팩토링할 내용을 한 줄로 요약해주세요
+      placeholder: 예) 인증 로직을 커스텀 훅으로 분리
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: ✅ 체크리스트
+      description: 리팩토링 작업 목록
+      value: |
+        - [ ] 작업 1
+        - [ ] 작업 2
+        - [ ] 작업 3
+    validations:
+      required: true

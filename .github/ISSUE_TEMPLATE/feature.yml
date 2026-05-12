@@ -1,0 +1,25 @@
+name: ✨ Feature
+description: 새로운 기능 제안
+title: '[FEAT] '
+labels: ['feature']
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 🎯 요약
+      description: 구현할 기능을 한 줄로 요약해주세요
+      placeholder: 예) 사용자가 산책 영상을 업로드할 수 있는 기능
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: ✅ 체크리스트
+      description: 구현해야 할 작업 목록
+      value: |
+        - [ ] 작업 1
+        - [ ] 작업 2
+        - [ ] 작업 3
+    validations:
+      required: true
