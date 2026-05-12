@@ -1,0 +1,15 @@
+COMMIT_MSG_FILE="$1"
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+# 브랜치명에서 이슈 번호(#123)를 추출하여 커밋 메시지 끝에 자동으로 추가한다.
+ISSUE_NUMBER=$(echo "$BRANCH_NAME" | grep -oE '#[0-9]+' | head -n1)
+
+if [ -n "$ISSUE_NUMBER" ]; then
+  # 첫 줄(제목)에만 (#이슈번호) 추가. 커멘트 라인(#로 시작)은 건드리지 않는다.
+  FIRST_LINE=$(head -n 1 "$COMMIT_MSG_FILE")
+
+  # 이미 (#숫자) 패턴이 포함되어 있으면 중복 추가하지 않는다.
+  if ! echo "$FIRST_LINE" | grep -qE "\($ISSUE_NUMBER\)"; then
+    sed -i ".bak" "1s/$/ ($ISSUE_NUMBER)/" "$COMMIT_MSG_FILE"
+  fi
+fi
