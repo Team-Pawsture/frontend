@@ -1,0 +1,21 @@
+language: 'ko-KR'
+
+reviews:
+  profile: 'chill'
+  high_level_summary: true
+  poetic_summary: false
+  poem: false
+
+  path_filters:
+    - '!**/node_modules/**'
+    - '!pnpm-lock.yaml'
+    - '!.husky/**'
+    - '!**/*.woff'
+    - '!**/*.woff2'
+    - '!**/*.png'
+    - '!**/*.jpg'
+    - '!**/*.svg'
+    - '!**/public/**'
+
+chat:
+  enabled: true
