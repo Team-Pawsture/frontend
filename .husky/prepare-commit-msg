@@ -1,3 +1,5 @@
+#!/bin/sh
+
 COMMIT_MSG_FILE="$1"
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 
