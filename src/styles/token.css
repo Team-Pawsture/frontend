@@ -38,15 +38,16 @@
   --color-green-200: #b7e1ca;
   --color-green-300: #207050;
 
-  /* Fonts */
-  --font-pretendard: var(--font-pretendard);
-
   /* Border radius */
   --radius: 0.625rem; /* 10px */
   --radius-xs: calc(var(--radius) - 6px); /*  4px */
   --radius-sm: calc(var(--radius) - 2px); /*  8px */
   --radius-md: calc(var(--radius) + 2px); /* 12px */
   --radius-lg: calc(var(--radius) + 6px); /* 16px */
+}
+
+@theme inline {
+  --font-pretendard: var(--font-pretendard);
 }
 
 @layer utilities {
