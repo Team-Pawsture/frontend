@@ -47,7 +47,7 @@
 }
 
 @theme inline {
-  --font-pretendard: var(--font-pretendard);
+  --font-pretendard: var(--pretendard);
 }
 
 @layer utilities {
