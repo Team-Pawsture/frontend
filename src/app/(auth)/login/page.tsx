@@ -3,21 +3,21 @@
 import { useRouter } from 'next/navigation';
 import { Button, Input } from '@/components/common';
 import { RedirectButton } from '@/components/auth';
-import useSignupForm from '@/hooks/auth/useSignupForm';
+import useLoginForm from '@/hooks/auth/useLoginForm';
 
-const SignupPage = (): React.ReactElement => {
+const LoginPage = (): React.ReactElement => {
   const router = useRouter();
-  const { formData, errors, isFormValid, handleChange, handleBlur } = useSignupForm();
+  const { formData, errors, isFormValid, handleChange, handleBlur } = useLoginForm();
 
-  const handleSignup = () => {
+  const handleLogin = () => {
     if (!isFormValid) return;
 
-    router.push('/login');
+    router.push('/home');
   };
 
   return (
     <div className="flex flex-col">
-      <h2 className="head2 text-primary mb-4 text-center">회원가입</h2>
+      <h2 className="head2 text-primary mb-4 text-center">로그인</h2>
       <div className="flex flex-col gap-2">
         <Input
           name="email"
@@ -38,23 +38,13 @@ const SignupPage = (): React.ReactElement => {
           onBlur={handleBlur}
           error={errors.password}
         />
-        <Input
-          name="passwordConfirm"
-          label="비밀번호 확인"
-          type="password"
-          placeholder="비밀번호를 한 번 더 입력하세요"
-          value={formData.passwordConfirm}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.passwordConfirm}
-        />
       </div>
       <div className="fixed bottom-10 left-1/2 w-full max-w-107.5 -translate-x-1/2 px-5">
-        <Button label="회원가입" onClick={handleSignup} isDisabled={!isFormValid} />
-        <RedirectButton description="이미 계정이 있으신가요?" linkText="로그인" to="/login" />
+        <Button label="로그인" onClick={handleLogin} isDisabled={!isFormValid} />
+        <RedirectButton description="계정이 없으신가요?" linkText="회원가입" to="/signup" />
       </div>
     </div>
   );
 };
 
-export default SignupPage;
+export default LoginPage;

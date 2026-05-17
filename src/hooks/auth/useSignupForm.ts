@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { EMAIL_REGEX, PASSWORD_REGEX } from '@/constants/validation';
 
-const useAuthForm = () => {
+const useSignupForm = () => {
   const [formData, setFormData] = useState({ email: '', password: '', passwordConfirm: '' });
   const [touched, setTouched] = useState({
     email: false,
@@ -45,4 +45,4 @@ const useAuthForm = () => {
   return { formData, errors, isFormValid, handleChange, handleBlur };
 };
 
-export default useAuthForm;
+export default useSignupForm;
