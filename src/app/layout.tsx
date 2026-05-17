@@ -21,7 +21,7 @@ const RootLayout = ({
 }>): React.ReactElement => {
   return (
     <html lang="ko" className={`${pretendard.variable} h-full`}>
-      <body className="font-pretendard flex h-full flex-col bg-neutral-100 antialiased">
+      <body className="font-pretendard vsc-initialized flex h-full flex-col bg-gray-100 antialiased">
         <div className="mx-auto flex min-h-full w-full max-w-107.5 flex-1 flex-col bg-white">
           <Providers>{children}</Providers>
         </div>
