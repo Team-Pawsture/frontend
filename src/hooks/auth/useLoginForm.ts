@@ -1,7 +1,15 @@
 import { useState } from 'react';
 import { EMAIL_REGEX } from '@/constants/validation';
 
-const useLoginForm = () => {
+type UseLoginFormReturn = {
+  formData: { email: string; password: string };
+  errors: { email: string; password: string };
+  isFormValid: boolean;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+};
+
+const useLoginForm = (): UseLoginFormReturn => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [touched, setTouched] = useState({ email: false, password: false });
 
