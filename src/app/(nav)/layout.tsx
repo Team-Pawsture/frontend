@@ -9,7 +9,7 @@ const NavLayout = ({ children }: NavLayoutProps): React.ReactElement => {
   return (
     <div className="flex flex-1 flex-col">
       <Header />
-      <main className="flex flex-1 flex-col">{children}</main>
+      <main className="scrollbar-hide flex flex-1 flex-col">{children}</main>
       <BottomNav />
     </div>
   );
