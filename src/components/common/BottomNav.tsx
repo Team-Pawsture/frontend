@@ -22,7 +22,9 @@ export const BottomNav = (): React.ReactElement => {
   return (
     <nav className="bg-gray-0 sticky bottom-0 z-10 flex items-center justify-around border-t border-gray-200 px-2">
       {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
-        const isActive = pathname === href;
+        const isActive =
+          href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
+
         return (
           <Link
             key={href}
