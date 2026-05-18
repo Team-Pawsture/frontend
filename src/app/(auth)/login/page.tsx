@@ -1,8 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Button, Input } from '@/components/common';
+
 import { RedirectButton } from '@/components/auth';
+import { Button, Input } from '@/components/common';
 import useLoginForm from '@/hooks/auth/useLoginForm';
 
 const LoginPage = (): React.ReactElement => {
@@ -12,7 +13,7 @@ const LoginPage = (): React.ReactElement => {
   const handleLogin = () => {
     if (!isFormValid) return;
 
-    router.push('/home');
+    router.push('/');
   };
 
   return (

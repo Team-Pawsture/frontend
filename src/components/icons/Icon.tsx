@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { IconProps } from '@/types/icon.types';
 
 export const Icon = ({ size = 24, className }: IconProps): React.ReactElement => {
