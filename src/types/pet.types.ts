@@ -24,7 +24,7 @@ export interface Pet {
   pet_id: number;
   name: string;
   birth_date: string;
-  breed: string;
+  breed: Breed;
   breed_etc?: string;
   gender: Gender;
   weight: number;
