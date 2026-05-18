@@ -1,4 +1,5 @@
-import { Header } from '@/components/common';
+import { BottomNav } from '@/components/common/BottomNav';
+import { Header } from '@/components/common/Header';
 
 type NavLayoutProps = {
   children: React.ReactNode;
@@ -6,9 +7,10 @@ type NavLayoutProps = {
 
 const NavLayout = ({ children }: NavLayoutProps): React.ReactElement => {
   return (
-    <div>
+    <div className="flex flex-1 flex-col">
       <Header />
-      {children}
+      <main className="flex flex-1 flex-col">{children}</main>
+      <BottomNav />
     </div>
   );
 };
