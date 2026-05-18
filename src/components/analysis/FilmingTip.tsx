@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const FilmingTip = (): React.ReactElement => {
   return (
     <section className="flex flex-col gap-1.5 rounded-(--radius-md) bg-gray-100 px-4 py-3">
