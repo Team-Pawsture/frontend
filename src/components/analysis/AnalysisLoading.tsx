@@ -24,7 +24,14 @@ export const AnalysisLoading = ({
           <span className="body3 text-gray-300">분석중</span>
           <span className="body3 text-primary">{progress}%</span>
         </div>
-        <div className="h-2.5 w-full overflow-hidden rounded-full bg-blue-100">
+        <div
+          className="h-2.5 w-full overflow-hidden rounded-full bg-blue-100"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={`${petName} 분석 진행률`}
+        >
           <div
             className="bg-primary h-full rounded-full transition-all duration-500 ease-in-out"
             style={{ width: `${progress}%` }}
