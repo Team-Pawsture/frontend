@@ -1,9 +1,9 @@
 export type RiskLevel = 'high' | 'suspicious' | 'uncertain' | 'low_signal';
 
 export interface AnalysisHistoryItem {
-  job_id: string;
-  pet_id: number;
+  jobId: string;
+  petId: number;
   name: string;
-  created_at: string;
-  risk_level: RiskLevel;
+  createdAt: string;
+  riskLevel: RiskLevel;
 }

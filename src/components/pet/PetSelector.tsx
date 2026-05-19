@@ -21,27 +21,27 @@ export const PetSelector = ({
       <div className="scrollbar-hide flex gap-4 overflow-x-auto px-5 pb-1">
         {pets.map((pet) => (
           <button
-            key={pet.pet_id}
+            key={pet.petId}
             type="button"
-            onClick={() => onSelect(pet.pet_id)}
+            onClick={() => onSelect(pet.petId)}
             className="flex shrink-0 flex-col items-center gap-2"
           >
             <div
               className={cn(
                 'relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2',
-                selectedPetId === pet.pet_id ? 'border-primary' : 'border-gray-200',
-                !pet.profile_image_url && 'bg-blue-100',
+                selectedPetId === pet.petId ? 'border-primary' : 'border-gray-200',
+                !pet.profileImageUrl && 'bg-blue-100',
               )}
             >
-              {pet.profile_image_url ? (
-                <Image src={pet.profile_image_url} alt={pet.name} fill className="object-cover" />
+              {pet.profileImageUrl ? (
+                <Image src={pet.profileImageUrl} alt={pet.name} fill className="object-cover" />
               ) : (
                 <span className="subhead6 text-primary">{pet.name[0]}</span>
               )}
             </div>
             <span
               className={cn(
-                selectedPetId === pet.pet_id ? 'body2 text-gray-400' : 'body3 text-gray-300',
+                selectedPetId === pet.petId ? 'body2 text-gray-400' : 'body3 text-gray-300',
               )}
             >
               {pet.name}

@@ -38,6 +38,9 @@
   --color-green-200: #b7e1ca;
   --color-green-300: #207050;
 
+  /* Shadow */
+  --shadow-card: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+
   /* Border radius */
   --radius: 0.625rem; /* 10px */
   --radius-xs: calc(var(--radius) - 0.375rem); /*  4px */
