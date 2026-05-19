@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
 
+import { IcPlus } from '@/components/icons';
 import type { Pet } from '@/types/pet.types';
 import { cn } from '@/utils/cn';
 
@@ -8,12 +11,14 @@ interface PetSelectorProps {
   pets: Pet[];
   selectedPetId: number | null;
   onSelect: (petId: number) => void;
+  onAddPet?: () => void;
 }
 
 export const PetSelector = ({
   pets,
   selectedPetId,
   onSelect,
+  onAddPet,
 }: PetSelectorProps): React.ReactElement => {
   return (
     <section className="flex flex-col gap-3">
@@ -48,6 +53,18 @@ export const PetSelector = ({
             </span>
           </button>
         ))}
+        {onAddPet !== undefined && (
+          <button
+            type="button"
+            onClick={onAddPet}
+            className="flex shrink-0 flex-col items-center gap-2"
+          >
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-gray-200 bg-gray-100">
+              <IcPlus size={20} className="text-gray-300" />
+            </div>
+            <span className="body3 text-gray-300">추가</span>
+          </button>
+        )}
       </div>
     </section>
   );

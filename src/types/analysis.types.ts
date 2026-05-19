@@ -6,4 +6,5 @@ export interface AnalysisHistoryItem {
   name: string;
   createdAt: string;
   riskLevel: RiskLevel;
+  confidenceScore: number;
 }
