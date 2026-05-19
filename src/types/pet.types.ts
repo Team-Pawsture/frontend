@@ -21,12 +21,12 @@ export type Breed =
 export type Gender = 'MALE' | 'FEMALE';
 
 export interface Pet {
-  pet_id: number;
+  petId: number;
   name: string;
-  birth_date: string;
+  birthDate: string;
   breed: Breed;
-  breed_etc?: string;
+  breedEtc?: string;
   gender: Gender;
   weight: number;
-  profile_image_url: string | null;
+  profileImageUrl: string | null;
 }

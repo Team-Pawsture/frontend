@@ -19,7 +19,7 @@ const HospitalPage = (): React.ReactElement => {
       </div>
       <div className="mt-1 flex flex-col gap-4 px-5 pb-4">
         {MOCK_HOSPITAL_LIST.hospitals.map((hospital, index) => (
-          <HospitalCard key={hospital.hospital_id ?? index} hospital={hospital} />
+          <HospitalCard key={hospital.hospitalId ?? index} hospital={hospital} />
         ))}
       </div>
     </div>

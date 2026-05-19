@@ -8,7 +8,7 @@ const HomePage = (): React.ReactElement => {
       <Banner />
       <div className="my-4 flex flex-col gap-2">
         {MOCK_ANALYSIS_HISTORY_LIST.map((history) => (
-          <AnalysisHistoryCard key={history.job_id} history={history} />
+          <AnalysisHistoryCard key={history.jobId} history={history} />
         ))}
       </div>
     </div>
