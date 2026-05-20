@@ -20,6 +20,17 @@ export type Breed =
 
 export type Gender = 'MALE' | 'FEMALE';
 
+export type MedicalHistory =
+  | 'NONE'
+  | 'PATELLA_LUXATION_DIAGNOSED'
+  | 'PATELLA_SURGERY'
+  | 'HIP_DYSPLASIA'
+  | 'CRUCIATE_LIGAMENT_INJURY'
+  | 'DISC'
+  | 'ARTHRITIS'
+  | 'OBESITY'
+  | 'OTHER';
+
 export interface Pet {
   petId: number;
   name: string;
@@ -29,4 +40,6 @@ export interface Pet {
   gender: Gender;
   weight: number;
   profileImageUrl: string | null;
+  medicalHistory: MedicalHistory[];
+  medicalHistoryEtc?: string;
 }

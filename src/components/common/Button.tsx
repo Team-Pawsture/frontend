@@ -22,7 +22,7 @@ export const Button = ({
       <button
         type="button"
         className={cn(
-          'subhead6 text-gray-0 flex h-full w-full items-center justify-center gap-2 rounded-lg',
+          'subhead6 text-gray-0 flex h-full w-full items-center justify-center gap-1 rounded-lg',
           'bg-primary',
           'disabled:text-gray-0 disabled:cursor-not-allowed disabled:bg-gray-200',
           className,

@@ -13,7 +13,7 @@ const NAV_ITEMS = [
   { href: '/', label: '홈', icon: IcHome },
   { href: '/analysis', label: '분석', icon: IcVideo },
   { href: '/hospital', label: '병원', icon: IcLocation },
-  { href: '/my', label: '마이', icon: IcUser },
+  { href: '/mypage', label: '마이', icon: IcUser },
 ];
 
 export const BottomNav = (): React.ReactElement => {

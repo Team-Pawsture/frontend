@@ -1,7 +1,9 @@
-import type { Metadata } from 'next';
 import './globals.css';
-import Providers from './providers';
+
+import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+
+import Providers from './providers';
 
 export const metadata: Metadata = {
   title: 'Pawsture',
@@ -21,8 +23,8 @@ const RootLayout = ({
 }>): React.ReactElement => {
   return (
     <html lang="ko" className={`${pretendard.variable} h-full`}>
-      <body className="font-pretendard vsc-initialized flex h-full flex-col bg-gray-100 antialiased">
-        <div className="mx-auto flex min-h-full w-full max-w-107.5 flex-1 flex-col bg-white">
+      <body className="font-pretendard vsc-initialized flex min-h-full flex-col bg-gray-100 antialiased">
+        <div className="bg-gray-0 mx-auto flex min-h-full w-full max-w-107.5 flex-1 flex-col">
           <Providers>{children}</Providers>
         </div>
       </body>
