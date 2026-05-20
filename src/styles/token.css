@@ -1,0 +1,112 @@
+@theme {
+  /* Key Color */
+  --color-primary: #3a88c8;
+
+  /* Blue Scale */
+  --color-blue-100: #eef7fd;
+  --color-blue-200: #c4dff0;
+  --color-blue-300: #90c8e8;
+  --color-blue-700: #071f38;
+
+  /* Gray Scale */
+  --color-gray-0: #ffffff;
+  --color-gray-100: #f7f7f7;
+  --color-gray-200: #eaebeb;
+  --color-gray-300: #8a8a8a;
+  --color-gray-400: #3a3a3a;
+
+  /* Semantic Colors */
+  --color-success: #3aa878;
+  --color-warning: #e8a828;
+  --color-danger: #d85050;
+
+  /* Red Scale */
+  --color-red-100: #feebeb;
+  --color-red-200: #f9c9c9;
+  --color-red-300: #d85050;
+
+  /* Yellow Scale */
+  --color-yellow-100: #fef4e0;
+  --color-yellow-200: #f2dea9;
+  --color-yellow-300: #9a6010;
+
+  /* Green Scale */
+  --color-green-100: #e4f5ec;
+  --color-green-200: #b7e1ca;
+  --color-green-300: #207050;
+
+  /* Shadow */
+  --shadow-card: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+
+  /* Border radius */
+  --radius: 0.625rem; /* 10px */
+  --radius-xs: calc(var(--radius) - 0.375rem); /*  4px */
+  --radius-sm: calc(var(--radius) - 0.125rem); /*  8px */
+  --radius-md: calc(var(--radius) + 0.125rem); /* 12px */
+  --radius-lg: calc(var(--radius) + 0.375rem); /* 16px */
+}
+
+@theme inline {
+  --font-pretendard: var(--pretendard);
+}
+
+@layer utilities {
+  /* Title (Pretendard) */
+  .title1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+  .title2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+
+  .head1 {
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+  .head2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+
+  .subhead1 {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+  .subhead2 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+  .subhead3 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+
+  .body1 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+  .body2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+}

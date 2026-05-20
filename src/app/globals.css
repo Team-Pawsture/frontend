@@ -1,13 +1,31 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import '../styles/token.css';
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 @layer base {
+  html,
   body {
     word-break: keep-all;
     touch-action: manipulation;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
   }
 
   button:not(:disabled),
-  [role="button"] {
+  [role='button'] {
     cursor: pointer;
   }
   button:disabled {
