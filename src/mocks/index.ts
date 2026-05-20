@@ -1,4 +1,4 @@
-import type { AnalysisHistoryItem } from '@/types/analysis.types';
+import type { AnalysisHistoryItem, AnalysisResult } from '@/types/analysis.types';
 import type { HospitalListResponse } from '@/types/hospital.types';
 import type { Pet } from '@/types/pet.types';
 
@@ -188,4 +188,24 @@ export const MOCK_HOSPITAL_LIST: HospitalListResponse = {
       mapUrl: null,
     },
   ],
+};
+
+export const MOCK_ANALYSIS_RESULT: AnalysisResult = {
+  analysisId: 5,
+  petId: 1,
+  status: 'completed',
+  prediction: {
+    riskLevel: 'high',
+    confidenceScore: 92.5,
+    isUncertain: false,
+    suspiciousSignalScore: 85.0,
+    abnormalSignalScore: 78.0,
+  },
+  recommendation: {
+    summary: '슬개골 탈구 위험이 높습니다. 정기적인 관절 관리와 운동이 필요합니다.',
+    action: [
+      '뒷다리를 한쪽씩 3초간 들어 올렸다가 천천히 내리는 동작을 10회씩 2세트 반복해 주세요.',
+      '미끄럼 방지를 위해 마루와 타일 위에 매트를 깔아 관절 충격을 줄여요.',
+    ],
+  },
 };
