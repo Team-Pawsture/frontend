@@ -6,9 +6,6 @@
   --color-blue-100: #eef7fd;
   --color-blue-200: #c4dff0;
   --color-blue-300: #90c8e8;
-  --color-blue-400: #2060a0;
-  --color-blue-500: #1565c0;
-  --color-blue-600: #0f3d6a;
   --color-blue-700: #071f38;
 
   /* Gray Scale */
@@ -68,12 +65,6 @@
     letter-spacing: -0.02em;
   }
 
-  .head0 {
-    font-size: 1.625rem;
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-  }
   .head1 {
     font-size: 1.625rem;
     font-weight: 600;
@@ -86,44 +77,20 @@
     line-height: 1.5;
     letter-spacing: -0.02em;
   }
-  .head3 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-  }
 
   .subhead1 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-  }
-  .subhead2 {
-    font-size: 1.125rem;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-  }
-  .subhead3 {
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-  }
-  .subhead4 {
     font-size: 1.0625rem;
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: -0.02em;
   }
-  .subhead5 {
+  .subhead2 {
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.5;
     letter-spacing: -0.02em;
   }
-  .subhead6 {
+  .subhead3 {
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.5;
@@ -131,24 +98,12 @@
   }
 
   .body1 {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-  }
-  .body2-1 {
     font-size: 0.875rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.5;
     letter-spacing: -0.02em;
   }
   .body2 {
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-  }
-  .body3 {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5;

@@ -35,7 +35,7 @@ export const BottomNav = (): React.ReactElement => {
             )}
           >
             <Icon size={24} />
-            <span className="body3">{label}</span>
+            <span className="body2">{label}</span>
           </Link>
         );
       })}

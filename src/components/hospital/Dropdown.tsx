@@ -38,7 +38,7 @@ export const Dropdown = ({ value, onChange }: DropdownProps): React.ReactElement
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="body3 flex items-center gap-1.5 rounded-full border border-gray-200 px-3 py-1.5 text-gray-400"
+        className="body2 flex items-center gap-1.5 rounded-full border border-gray-200 px-3 py-1.5 text-gray-400"
       >
         {selectedLabel}
         <IcArrowDown
@@ -54,7 +54,7 @@ export const Dropdown = ({ value, onChange }: DropdownProps): React.ReactElement
                 type="button"
                 onClick={() => handleSelect(option.value)}
                 className={cn(
-                  'body3 w-full px-4 py-2.5 text-left hover:bg-gray-100',
+                  'body2 w-full px-4 py-2.5 text-left hover:bg-gray-100',
                   value === option.value ? 'text-primary' : 'text-gray-400',
                 )}
               >

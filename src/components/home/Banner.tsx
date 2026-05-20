@@ -18,7 +18,7 @@ export const Banner = () => {
         <br />
         영상으로 확인하세요{' '}
       </h2>
-      <p className="body2 py-2 text-blue-200">
+      <p className="body1 py-2 text-blue-200">
         걷는 영상 하나로 관절 상태를
         <br />
         AI가 정밀 분석해드려요{' '}

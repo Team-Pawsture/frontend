@@ -17,12 +17,12 @@ export const AnalysisLoading = ({
           <br />
           분석하고 있어요
         </h1>
-        <p className="body3 text-gray-300">잠시만 기다려주세요</p>
+        <p className="body2 text-gray-300">잠시만 기다려주세요</p>
       </div>
       <div className="mx-auto mt-10 flex w-full max-w-75 flex-col gap-2">
         <div className="flex items-center justify-between">
-          <span className="body3 text-gray-300">분석중</span>
-          <span className="body3 text-primary">{progress}%</span>
+          <span className="body2 text-gray-300">분석중</span>
+          <span className="body2 text-primary">{progress}%</span>
         </div>
         <div
           className="h-2.5 w-full overflow-hidden rounded-full bg-blue-100"

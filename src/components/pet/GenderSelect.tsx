@@ -12,7 +12,7 @@ interface GenderSelectProps {
 export const GenderSelect = ({ value, onChange }: GenderSelectProps): React.ReactElement => {
   return (
     <div className="flex w-full flex-col">
-      <p className="subhead6 text-blue-700">성별</p>
+      <p className="subhead3 text-blue-700">성별</p>
       <div className="mt-2 flex gap-3">
         {(Object.keys(GENDER_LABEL) as Gender[]).map((gender) => (
           <button
@@ -20,7 +20,7 @@ export const GenderSelect = ({ value, onChange }: GenderSelectProps): React.Reac
             type="button"
             onClick={() => onChange(gender)}
             className={cn(
-              'body2 flex-1 rounded-md border py-3 transition-all',
+              'body1 flex-1 rounded-md border py-3 transition-all',
               value === gender
                 ? 'border-primary text-primary bg-blue-50'
                 : 'bg-gray-0 border-blue-200 text-gray-300',

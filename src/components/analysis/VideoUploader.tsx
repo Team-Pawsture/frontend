@@ -26,7 +26,7 @@ export const VideoUploader = ({ file, onFileChange }: VideoUploaderProps): React
 
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="subhead6 text-gray-400">동영상 선택</h2>
+      <h2 className="subhead3 text-gray-400">동영상 선택</h2>
       <button
         type="button"
         onClick={handleClick}
@@ -35,11 +35,11 @@ export const VideoUploader = ({ file, onFileChange }: VideoUploaderProps): React
         <IcVideo size={36} className="text-primary" />
         {file ? (
           <>
-            <span className="body2 text-gray-400">{file.name}</span>
-            <span className="body3 text-gray-300">{formatFileSize(file.size)} 업로드 완료</span>
+            <span className="body1 text-gray-400">{file.name}</span>
+            <span className="body2 text-gray-300">{formatFileSize(file.size)} 업로드 완료</span>
           </>
         ) : (
-          <span className="body3 text-gray-300">동영상을 선택해주세요</span>
+          <span className="body2 text-gray-300">동영상을 선택해주세요</span>
         )}
       </button>
       <input
