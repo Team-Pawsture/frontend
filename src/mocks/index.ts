@@ -53,6 +53,7 @@ export const MOCK_PET_LIST: Pet[] = [
     breed: 'POMERANIAN',
     gender: 'MALE',
     weight: 3.5,
+    medicalHistory: ['NONE'],
     profileImageUrl: 'https://cdn.pixabay.com/photo/2020/05/03/13/09/puppy-5124947_1280.jpg',
   },
   {
@@ -62,6 +63,7 @@ export const MOCK_PET_LIST: Pet[] = [
     breed: 'MALTESE',
     gender: 'FEMALE',
     weight: 4.2,
+    medicalHistory: ['NONE'],
     profileImageUrl: null,
   },
   {
@@ -71,6 +73,7 @@ export const MOCK_PET_LIST: Pet[] = [
     breed: 'TOY_POODLE',
     gender: 'FEMALE',
     weight: 5.0,
+    medicalHistory: ['NONE'],
     profileImageUrl: null,
   },
   {
@@ -81,6 +84,7 @@ export const MOCK_PET_LIST: Pet[] = [
     breedEtc: '믹스견',
     gender: 'MALE',
     weight: 6.8,
+    medicalHistory: ['NONE'],
     profileImageUrl: null,
   },
   {
@@ -90,6 +94,7 @@ export const MOCK_PET_LIST: Pet[] = [
     breed: 'MINIATURE_POODLE',
     gender: 'FEMALE',
     weight: 4.5,
+    medicalHistory: ['NONE'],
     profileImageUrl: null,
   },
   {
@@ -99,6 +104,7 @@ export const MOCK_PET_LIST: Pet[] = [
     breed: 'CHIHUAHUA',
     gender: 'FEMALE',
     weight: 2.3,
+    medicalHistory: ['NONE'],
     profileImageUrl: null,
   },
 ];
