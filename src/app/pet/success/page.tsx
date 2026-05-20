@@ -10,7 +10,7 @@ const PetSuccessPage = (): React.ReactElement => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-1 flex-col p-5">
+    <div className="flex flex-1 flex-col px-5 pt-5 pb-8">
       <RegistrationCompleteCard />
       <div className="mt-10 flex flex-col items-center gap-1.5">
         <p className="subhead4">다른 반려견도 등록할까요?</p>
