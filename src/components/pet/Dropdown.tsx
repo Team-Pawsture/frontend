@@ -53,6 +53,9 @@ export const Dropdown = ({
         <button
           id={name}
           type="button"
+          aria-haspopup="listbox"
+          aria-expanded={isOpen}
+          aria-controls={name ? `${name}-listbox` : undefined}
           onClick={() => setIsOpen((prev) => !prev)}
           className={cn(
             'body2 flex w-full items-center justify-between rounded-md border px-5 py-3 transition-all outline-none',
@@ -72,10 +75,16 @@ export const Dropdown = ({
           />
         </button>
         {isOpen && (
-          <ul className="bg-gray-0 absolute top-full left-0 z-20 mt-1 max-h-52 w-full overflow-y-auto rounded-md border border-blue-200 shadow-sm">
+          <ul
+            id={name ? `${name}-listbox` : undefined}
+            role="listbox"
+            className="bg-gray-0 absolute top-full left-0 z-20 mt-1 max-h-52 w-full overflow-y-auto rounded-md border border-blue-200 shadow-sm"
+          >
             {options.map((option) => (
               <li key={option.value}>
                 <button
+                  role="option"
+                  aria-selected={option.value === value}
                   type="button"
                   onClick={() => handleSelect(option.value)}
                   className={cn(
