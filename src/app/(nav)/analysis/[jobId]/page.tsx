@@ -34,9 +34,9 @@ const AnalysisDetailPage = ({ params }: AnalysisDetailPageProps): React.ReactEle
           <div className="flex h-35 w-full items-center justify-center rounded-lg bg-gray-100">
             비디오
           </div>
-          <h2 className="subhead6 my-2 text-gray-400">분석 요약</h2>
+          <h2 className="subhead3 my-2 text-gray-400">분석 요약</h2>
           <MetricCardGrid prediction={MOCK_ANALYSIS_RESULT.prediction} />
-          <h2 className="subhead6 my-2 text-gray-400">맞춤 솔루션</h2>
+          <h2 className="subhead3 my-2 text-gray-400">맞춤 솔루션</h2>
           <div className="mb-3 flex flex-col gap-3">
             {MOCK_ANALYSIS_RESULT.recommendation.action.map((solution, index) => (
               <SolutionCard key={index} step={index + 1} solution={solution} />

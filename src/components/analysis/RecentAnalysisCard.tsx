@@ -13,8 +13,8 @@ export const RecentAnalysisCard = ({ item }: RecentAnalysisCardProps) => {
   return (
     <div className="bg-gray-0 shadow-card flex w-full items-center justify-between rounded-(--radius-md) px-4 py-3">
       <div className="flex flex-col gap-0.5">
-        <h3 className="subhead6 text-gray-400">{name}</h3>
-        <p className="body3 text-gray-300">{formatDate(createdAt)}</p>
+        <h3 className="subhead3 text-gray-400">{name}</h3>
+        <p className="body2 text-gray-300">{formatDate(createdAt)}</p>
       </div>
       <Chip label={RISK_LEVEL_LABEL[riskLevel]} className={RISK_LEVEL_STYLE[riskLevel]} />
     </div>

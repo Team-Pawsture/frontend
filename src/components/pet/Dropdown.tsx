@@ -45,7 +45,7 @@ export const Dropdown = ({
   return (
     <div className="flex w-full flex-col">
       {label && (
-        <label htmlFor={name} className="subhead6 text-blue-700">
+        <label htmlFor={name} className="subhead3 text-blue-700">
           {label}
         </label>
       )}
@@ -58,7 +58,7 @@ export const Dropdown = ({
           aria-controls={name ? `${name}-listbox` : undefined}
           onClick={() => setIsOpen((prev) => !prev)}
           className={cn(
-            'body2 flex w-full items-center justify-between rounded-md border px-5 py-3 transition-all outline-none',
+            'body1 flex w-full items-center justify-between rounded-md border px-5 py-3 transition-all outline-none',
             'bg-gray-0',
             isOpen ? 'border-primary bg-blue-50' : 'border-blue-200',
           )}
@@ -88,7 +88,7 @@ export const Dropdown = ({
                   type="button"
                   onClick={() => handleSelect(option.value)}
                   className={cn(
-                    'body2 w-full px-5 py-3 text-left transition-colors hover:bg-blue-50',
+                    'body1 w-full px-5 py-3 text-left transition-colors hover:bg-blue-50',
                     option.value === value ? 'text-primary' : 'text-gray-400',
                   )}
                 >

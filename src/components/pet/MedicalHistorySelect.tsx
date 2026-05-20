@@ -33,7 +33,7 @@ export const MedicalHistorySelect = ({
 
   return (
     <div className="flex w-full flex-col">
-      <p className="subhead6 text-blue-700">과거 병력 (중복 가능)</p>
+      <p className="subhead3 text-blue-700">과거 병력 (중복 가능)</p>
       <div className="mt-2 flex flex-wrap gap-2">
         {(Object.keys(MEDICAL_HISTORY_LABEL) as MedicalHistory[]).map((key) => (
           <button
@@ -41,7 +41,7 @@ export const MedicalHistorySelect = ({
             type="button"
             onClick={() => handleToggle(key)}
             className={cn(
-              'body3 rounded-full border px-3 py-1.5 transition-all',
+              'body2 rounded-full border px-3 py-1.5 transition-all',
               value.includes(key)
                 ? 'border-primary text-primary bg-blue-50'
                 : 'bg-gray-0 border-blue-200 text-gray-300',

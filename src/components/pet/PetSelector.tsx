@@ -22,7 +22,7 @@ export const PetSelector = ({
 }: PetSelectorProps): React.ReactElement => {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="subhead6 px-5 text-gray-400">반려견 선택</h2>
+      <h2 className="subhead3 px-5 text-gray-400">반려견 선택</h2>
       <div className="scrollbar-hide flex gap-4 overflow-x-auto px-5 pb-1">
         {pets.map((pet) => (
           <button
@@ -41,12 +41,12 @@ export const PetSelector = ({
               {pet.profileImageUrl ? (
                 <Image src={pet.profileImageUrl} alt={pet.name} fill className="object-cover" />
               ) : (
-                <span className="subhead6 text-primary">{pet.name[0]}</span>
+                <span className="subhead3 text-primary">{pet.name[0]}</span>
               )}
             </div>
             <span
               className={cn(
-                selectedPetId === pet.petId ? 'body2 text-gray-400' : 'body3 text-gray-300',
+                selectedPetId === pet.petId ? 'body1 text-gray-400' : 'body2 text-gray-300',
               )}
             >
               {pet.name}
@@ -62,7 +62,7 @@ export const PetSelector = ({
             <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-gray-200 bg-gray-100">
               <IcPlus size={20} className="text-gray-300" />
             </div>
-            <span className="body3 text-gray-300">추가</span>
+            <span className="body2 text-gray-300">추가</span>
           </button>
         )}
       </div>

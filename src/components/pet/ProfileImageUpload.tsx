@@ -46,7 +46,7 @@ export const ProfileImageUpload = ({ onChange }: ProfileImageUploadProps): React
           <IcPlus size={24} className="text-blue-200" />
         )}
       </button>
-      <p className="body3 text-gray-300">사진 추가 (선택)</p>
+      <p className="body2 text-gray-300">사진 추가 (선택)</p>
     </div>
   );
 };
