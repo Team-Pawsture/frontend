@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import React from 'react';
 
 import { Chip } from '@/components/common/Chip';
 import { IcClock, IcHome, IcLocation } from '@/components/icons';
 import { OPERATION_STATUS_LABEL, OPERATION_STATUS_STYLE } from '@/constants/hospital';
 import type { Hospital } from '@/types/hospital.types';
+import { cn } from '@/utils/cn';
 
 interface HospitalCardProps {
   hospital: Hospital;
@@ -21,7 +21,7 @@ export const HospitalCard = ({ hospital }: HospitalCardProps): React.ReactElemen
           {operationStatus && (
             <Chip
               label={OPERATION_STATUS_LABEL[operationStatus]}
-              className={`${OPERATION_STATUS_STYLE[operationStatus]} px-2 py-0.5`}
+              className={cn(OPERATION_STATUS_STYLE[operationStatus], 'px-2 py-0.5')}
             />
           )}
         </div>
