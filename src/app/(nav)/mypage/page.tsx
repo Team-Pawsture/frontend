@@ -29,15 +29,15 @@ const MyPage = (): React.ReactElement => {
       />
       <div className="flex flex-col gap-3 px-5">
         <div className="flex items-center justify-between">
-          <h2 className="subhead6 text-gray-400">분석 기록</h2>
+          <h2 className="subhead3 text-gray-400">분석 기록</h2>
           {selectedPet && (
-            <p className="body3 text-gray-300">
+            <p className="body2 text-gray-300">
               {selectedPet.name} 총 <span className="text-primary">{filteredHistory.length}</span>건
             </p>
           )}
         </div>
         {filteredHistory.length === 0 ? (
-          <p className="body3 py-8 text-center text-gray-300">
+          <p className="body2 py-8 text-center text-gray-300">
             아직 분석 기록이 없어요. 영상을 분석해 보세요!
           </p>
         ) : (

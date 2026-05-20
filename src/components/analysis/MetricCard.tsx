@@ -19,9 +19,9 @@ export const MetricCard = ({
 
   return (
     <section className="flex flex-col items-center gap-1 rounded-(--radius-md) bg-gray-100 px-4 py-3">
-      <h4 className="body2 text-center text-gray-600">{label}</h4>
+      <h4 className="body1 text-center text-gray-600">{label}</h4>
       <p className={cn('title2', valueColor)}>{value}</p>
-      {score && <p className={cn('body3', valueColor)}>{score}</p>}
+      {score && <p className={cn('body2', valueColor)}>{score}</p>}
     </section>
   );
 };
