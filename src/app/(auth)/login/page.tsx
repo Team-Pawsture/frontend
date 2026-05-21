@@ -8,12 +8,11 @@ import useLoginForm from '@/hooks/auth/useLoginForm';
 
 const LoginPage = (): React.ReactElement => {
   const router = useRouter();
-  const { formData, errors, isFormValid, handleChange, handleBlur } = useLoginForm();
+  const { formData, errors, isFormValid, isLoading, handleChange, handleBlur, handleSubmit } =
+    useLoginForm();
 
-  const handleLogin = () => {
-    if (!isFormValid) return;
-
-    router.push('/');
+  const handleLogin = async (): Promise<void> => {
+    await handleSubmit(() => router.push('/'));
   };
 
   return (
@@ -41,7 +40,7 @@ const LoginPage = (): React.ReactElement => {
         />
       </div>
       <div className="fixed bottom-10 left-1/2 w-full max-w-107.5 -translate-x-1/2 px-5">
-        <Button label="로그인" onClick={handleLogin} isDisabled={!isFormValid} />
+        <Button label="로그인" onClick={handleLogin} isDisabled={!isFormValid || isLoading} />
         <RedirectButton description="계정이 없으신가요?" linkText="회원가입" to="/signup" />
       </div>
     </div>

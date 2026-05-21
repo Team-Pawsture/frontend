@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { signup } from '@/apis/auth/signup';
+import { signup } from '@/apis/auth';
 import { EMAIL_REGEX, PASSWORD_REGEX } from '@/constants/validation';
-import { ApiError } from '@/types/common/error';
+import { ApiError } from '@/types/common/error.types';
 
 type UseSignupFormReturn = {
   formData: { email: string; password: string; passwordConfirm: string };
