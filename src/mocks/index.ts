@@ -1,6 +1,5 @@
 import type { AnalysisHistoryItem, AnalysisResult } from '@/types/analysis.types';
 import type { HospitalListResponse } from '@/types/hospital.types';
-import type { Pet } from '@/types/pet.types';
 
 export const MOCK_ANALYSIS_HISTORY_LIST: AnalysisHistoryItem[] = [
   {
@@ -42,81 +41,6 @@ export const MOCK_ANALYSIS_HISTORY_LIST: AnalysisHistoryItem[] = [
     createdAt: '2026-05-15T17:00:00+09:00',
     riskLevel: 'low_signal',
     confidenceScore: 92,
-  },
-];
-
-export const MOCK_PET_LIST: Pet[] = [
-  {
-    petId: 1,
-    name: '두부',
-    birthDate: '2020-01-01',
-    breed: 'POMERANIAN',
-    breedEtc: null,
-    gender: 'MALE',
-    weight: 3.5,
-    medicalHistory: ['NONE'],
-    medicalHistoryEtc: null,
-    profileImageUrl: 'https://cdn.pixabay.com/photo/2020/05/03/13/09/puppy-5124947_1280.jpg',
-  },
-  {
-    petId: 2,
-    name: '뭉치',
-    birthDate: '2019-06-15',
-    breed: 'MALTESE',
-    breedEtc: null,
-    gender: 'FEMALE',
-    weight: 4.2,
-    medicalHistory: ['NONE'],
-    medicalHistoryEtc: null,
-    profileImageUrl: null,
-  },
-  {
-    petId: 3,
-    name: '콩이',
-    birthDate: '2014-03-05',
-    breed: 'TOY_POODLE',
-    breedEtc: null,
-    gender: 'FEMALE',
-    weight: 5.0,
-    medicalHistory: ['NONE'],
-    medicalHistoryEtc: null,
-    profileImageUrl: null,
-  },
-  {
-    petId: 4,
-    name: '초코',
-    birthDate: '2022-11-20',
-    breed: 'OTHER',
-    breedEtc: '믹스견',
-    gender: 'MALE',
-    weight: 6.8,
-    medicalHistory: ['NONE'],
-    medicalHistoryEtc: null,
-    profileImageUrl: null,
-  },
-  {
-    petId: 5,
-    name: '구름',
-    birthDate: '2021-08-10',
-    breed: 'MINIATURE_POODLE',
-    breedEtc: null,
-    gender: 'FEMALE',
-    weight: 4.5,
-    medicalHistory: ['NONE'],
-    medicalHistoryEtc: null,
-    profileImageUrl: null,
-  },
-  {
-    petId: 6,
-    name: '별이',
-    birthDate: '2018-12-25',
-    breed: 'CHIHUAHUA',
-    breedEtc: null,
-    gender: 'FEMALE',
-    weight: 2.3,
-    medicalHistory: ['NONE'],
-    medicalHistoryEtc: null,
-    profileImageUrl: null,
   },
 ];
 

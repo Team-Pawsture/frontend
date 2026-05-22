@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.pixabay.com',
       },
+      {
+        hostname: new URL(process.env.NEXT_PUBLIC_API_BASE_URL!).hostname,
+      },
     ],
   },
 };

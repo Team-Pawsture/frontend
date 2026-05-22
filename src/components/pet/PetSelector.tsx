@@ -39,7 +39,12 @@ export const PetSelector = ({
               )}
             >
               {pet.profileImageUrl ? (
-                <Image src={pet.profileImageUrl} alt={pet.name} fill className="object-cover" />
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${pet.profileImageUrl}`}
+                  alt={pet.name}
+                  fill
+                  className="object-cover"
+                />
               ) : (
                 <span className="subhead3 text-primary">{pet.name[0]}</span>
               )}

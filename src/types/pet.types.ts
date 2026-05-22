@@ -36,12 +36,9 @@ export type Pet = {
   name: string;
   birthDate: string;
   breed: Breed;
-  breedEtc: string | null;
   gender: Gender;
   weight: number;
   profileImageUrl: string | null;
-  medicalHistory: MedicalHistory[];
-  medicalHistoryEtc: string | null;
 };
 
 export type RegisterPetRequest = {

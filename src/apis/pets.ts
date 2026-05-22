@@ -1,7 +1,9 @@
 import { httpClient } from '@/apis/client';
 import type { Pet, RegisterPetRequest } from '@/types/pet.types';
 
-export const registerPet = (data: RegisterPetRequest): Promise<Pet> => {
+export const getPets = (): Promise<Pet[]> => httpClient.get<Pet[]>('/pets');
+
+export const registerPet = (data: RegisterPetRequest): Promise<void> => {
   const formData = new FormData();
 
   formData.append('name', data.name);
@@ -14,5 +16,5 @@ export const registerPet = (data: RegisterPetRequest): Promise<Pet> => {
   if (data.medicalHistoryEtc) formData.append('medical_history_etc', data.medicalHistoryEtc);
   if (data.image) formData.append('image', data.image);
 
-  return httpClient.post<Pet>('/pets', formData);
+  return httpClient.post<void>('/pets', formData);
 };

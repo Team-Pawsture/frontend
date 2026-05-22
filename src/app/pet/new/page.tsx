@@ -3,10 +3,10 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import { registerPet } from '@/apis/pets';
 import { Button, Input } from '@/components/common';
 import { Dropdown, GenderSelect, MedicalHistorySelect, ProfileImageUpload } from '@/components/pet';
 import { BREED_LABEL } from '@/constants/pet';
+import useRegisterPet from '@/hooks/pet/useRegisterPet';
 import type { Breed, Gender, MedicalHistory } from '@/types/pet.types';
 
 const BREED_OPTIONS = (Object.keys(BREED_LABEL) as Breed[]).map((key) => ({
@@ -16,6 +16,7 @@ const BREED_OPTIONS = (Object.keys(BREED_LABEL) as Breed[]).map((key) => ({
 
 const PetNewPage = (): React.ReactElement => {
   const router = useRouter();
+  const { mutateAsync, isPending } = useRegisterPet();
   const [name, setName] = useState('');
   const [breed, setBreed] = useState<Breed | ''>('');
   const [breedEtc, setBreedEtc] = useState('');
@@ -40,7 +41,7 @@ const PetNewPage = (): React.ReactElement => {
     if (!breed || !gender) return;
 
     try {
-      const result = await registerPet({
+      await mutateAsync({
         name,
         birthDate,
         breed,
@@ -51,7 +52,6 @@ const PetNewPage = (): React.ReactElement => {
         medicalHistoryEtc: medicalHistory.includes('OTHER') ? medicalHistoryEtc : undefined,
         image,
       });
-      console.log(result);
       router.push('/pet/success');
     } catch {
       alert('오류가 발생했습니다. 다시 시도해주세요.');
@@ -112,7 +112,7 @@ const PetNewPage = (): React.ReactElement => {
           onEtcChange={setMedicalHistoryEtc}
         />
       </div>
-      <Button label="등록하기" onClick={handleRegister} isDisabled={!isFormValid} />
+      <Button label="등록하기" onClick={handleRegister} isDisabled={!isFormValid || isPending} />
     </div>
   );
 };
