@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Button, Input } from '@/components/common';
 import { Dropdown, GenderSelect, MedicalHistorySelect, ProfileImageUpload } from '@/components/pet';
 import { BREED_LABEL } from '@/constants/pet';
+import useRegisterPet from '@/hooks/pet/useRegisterPet';
 import type { Breed, Gender, MedicalHistory } from '@/types/pet.types';
 
 const BREED_OPTIONS = (Object.keys(BREED_LABEL) as Breed[]).map((key) => ({
@@ -15,6 +16,7 @@ const BREED_OPTIONS = (Object.keys(BREED_LABEL) as Breed[]).map((key) => ({
 
 const PetNewPage = (): React.ReactElement => {
   const router = useRouter();
+  const { mutateAsync, isPending } = useRegisterPet();
   const [name, setName] = useState('');
   const [breed, setBreed] = useState<Breed | ''>('');
   const [breedEtc, setBreedEtc] = useState('');
@@ -23,6 +25,7 @@ const PetNewPage = (): React.ReactElement => {
   const [weight, setWeight] = useState('');
   const [medicalHistory, setMedicalHistory] = useState<MedicalHistory[]>([]);
   const [medicalHistoryEtc, setMedicalHistoryEtc] = useState('');
+  const [image, setImage] = useState<File | undefined>(undefined);
 
   const isFormValid =
     name.trim() !== '' &&
@@ -34,14 +37,31 @@ const PetNewPage = (): React.ReactElement => {
     medicalHistory.length > 0 &&
     (!medicalHistory.includes('OTHER') || medicalHistoryEtc.trim() !== '');
 
-  const handleRegister = () => {
-    router.push('/pet/success');
+  const handleRegister = async (): Promise<void> => {
+    if (!breed || !gender) return;
+
+    try {
+      await mutateAsync({
+        name,
+        birthDate,
+        breed,
+        breedEtc: breed === 'OTHER' ? breedEtc : undefined,
+        gender,
+        weight: Number(weight),
+        medicalHistory,
+        medicalHistoryEtc: medicalHistory.includes('OTHER') ? medicalHistoryEtc : undefined,
+        image,
+      });
+      router.push('/pet/success');
+    } catch {
+      alert('오류가 발생했습니다. 다시 시도해주세요.');
+    }
   };
 
   return (
     <div className="flex flex-col px-5 pt-6 pb-8">
       <div className="mb-6">
-        <ProfileImageUpload />
+        <ProfileImageUpload onChange={setImage} />
       </div>
       <div className="flex flex-col">
         <Input
@@ -92,7 +112,7 @@ const PetNewPage = (): React.ReactElement => {
           onEtcChange={setMedicalHistoryEtc}
         />
       </div>
-      <Button label="등록하기" onClick={handleRegister} isDisabled={!isFormValid} />
+      <Button label="등록하기" onClick={handleRegister} isDisabled={!isFormValid || isPending} />
     </div>
   );
 };

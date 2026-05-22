@@ -4,25 +4,27 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 import { AnalysisHistoryCard } from '@/components/analysis';
 import { PetSelector } from '@/components/pet';
-import { MOCK_ANALYSIS_HISTORY_LIST, MOCK_PET_LIST } from '@/mocks';
+import usePetList from '@/hooks/pet/usePetList';
+import { MOCK_ANALYSIS_HISTORY_LIST } from '@/mocks';
 
 const MyPage = (): React.ReactElement => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { data: pets = [] } = usePetList();
 
-  const selectedPetId = Number(searchParams.get('petId')) || (MOCK_PET_LIST[0]?.petId ?? null);
+  const selectedPetId = Number(searchParams.get('petId')) || (pets[0]?.petId ?? null);
 
   const handleSelectPet = (petId: number) => {
     router.replace(`/mypage?petId=${petId}`);
   };
 
-  const selectedPet = MOCK_PET_LIST.find((pet) => pet.petId === selectedPetId);
+  const selectedPet = pets.find((pet) => pet.petId === selectedPetId);
   const filteredHistory = MOCK_ANALYSIS_HISTORY_LIST.filter((item) => item.petId === selectedPetId);
 
   return (
     <div className="flex flex-col gap-6 pb-6">
       <PetSelector
-        pets={MOCK_PET_LIST}
+        pets={pets}
         selectedPetId={selectedPetId}
         onSelect={handleSelectPet}
         onAddPet={() => router.push('/pet/new')}
