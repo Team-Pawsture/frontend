@@ -30,7 +30,7 @@ const MyPage = (): React.ReactElement => {
         onAddPet={() => router.push('/pet/new')}
       />
       <div className="flex flex-col gap-3 px-5">
-        <div className="flex items-center justify-between">
+        <div className="flex h-11 items-center justify-between">
           <h2 className="subhead3 text-gray-400">분석 기록</h2>
           {selectedPet && (
             <p className="body2 text-gray-300">

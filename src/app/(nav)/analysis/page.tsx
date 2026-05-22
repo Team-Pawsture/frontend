@@ -1,12 +1,11 @@
 'use client';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { FilmingTip, VideoUploader } from '@/components/analysis';
 import { Button } from '@/components/common';
-import { PetSelector } from '@/components/pet';
+import { NoPetFallback, PetSelector } from '@/components/pet';
 import usePetList from '@/hooks/pet/usePetList';
 
 const AnalysisPage = (): React.ReactElement => {
@@ -23,20 +22,7 @@ const AnalysisPage = (): React.ReactElement => {
   };
 
   if (pets.length === 0) {
-    return (
-      <div className="flex flex-1 flex-col items-center justify-center gap-5 px-5">
-        <div className="flex flex-col items-center gap-1.5">
-          <p className="subhead3 text-gray-400">아직 등록된 반려견이 없어요</p>
-          <p className="body2 text-gray-300">반려견을 등록하고 걸음 분석을 시작해보세요</p>
-        </div>
-        <Link
-          href="/pet/new"
-          className="body1 text-primary border-primary rounded-full border px-7 py-2.5"
-        >
-          등록하러 가기
-        </Link>
-      </div>
-    );
+    return <NoPetFallback description="반려견을 등록하고 걸음 분석을 시작해보세요" />;
   }
 
   return (
