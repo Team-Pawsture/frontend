@@ -18,7 +18,16 @@ export interface Hospital {
   mapUrl: string | null;
 }
 
-export interface HospitalListResponse {
+export interface HospitalList {
   total: number;
   hospitals: Hospital[];
 }
+
+export type Coordinates = {
+  lat: number;
+  lng: number;
+};
+
+export type RecommendHospitalRequest = Coordinates & {
+  petId: number;
+};

@@ -1,5 +1,4 @@
 import type { AnalysisHistoryItem, AnalysisResult } from '@/types/analysis.types';
-import type { HospitalListResponse } from '@/types/hospital.types';
 
 export const MOCK_ANALYSIS_HISTORY_LIST: AnalysisHistoryItem[] = [
   {
@@ -43,87 +42,6 @@ export const MOCK_ANALYSIS_HISTORY_LIST: AnalysisHistoryItem[] = [
     confidenceScore: 92,
   },
 ];
-
-export const MOCK_HOSPITAL_LIST: HospitalListResponse = {
-  total: 5,
-  hospitals: [
-    {
-      hospitalId: 1,
-      name: 'A동물병원',
-      address: '서울 성북구 아리랑로',
-      phone: '02-000-0000',
-      latitude: 37.4935,
-      longitude: 127.0245,
-      distanceMeters: 184,
-      specialty: '정형외과',
-      certifications: ['피어프리인증'],
-      imageUrl: 'https://cdn.pixabay.com/photo/2020/05/03/13/09/puppy-5124947_1280.jpg',
-      todayHours: '09:00-18:30',
-      operationStatus: 'open',
-      mapUrl: 'https://naver.me/FsRXpiqk',
-    },
-    {
-      hospitalId: 2,
-      name: 'B동물병원',
-      address: '서울특별시 강북구 월계로',
-      phone: '010-0000-0000',
-      latitude: 37.4935,
-      longitude: 127.0245,
-      distanceMeters: 184,
-      specialty: null,
-      certifications: [],
-      imageUrl: null,
-      todayHours: '09:00-18:30',
-      operationStatus: 'closed',
-      mapUrl: null,
-    },
-    {
-      hospitalId: 3,
-      name: 'C동물병원',
-      address: '서울특별시 강남구 테헤란로',
-      phone: '010-0000-0000',
-      latitude: 37.4935,
-      longitude: 127.0245,
-      distanceMeters: 184,
-      specialty: null,
-      certifications: [],
-      imageUrl: null,
-      todayHours: '09:00-18:30',
-      operationStatus: 'before_open',
-      mapUrl: null,
-    },
-    {
-      hospitalId: 4,
-      name: 'D동물병원',
-      address: '경기 고양시',
-      phone: '010-0000-0000',
-      latitude: 37.4935,
-      longitude: 127.0245,
-      distanceMeters: 184,
-      specialty: null,
-      certifications: [],
-      imageUrl: null,
-      todayHours: null,
-      operationStatus: null,
-      mapUrl: null,
-    },
-    {
-      hospitalId: 5,
-      name: 'E동물병원',
-      address: '경기 남양주시',
-      phone: '010-0000-0000',
-      latitude: 37.4935,
-      longitude: 127.0245,
-      distanceMeters: 184,
-      specialty: null,
-      certifications: [],
-      imageUrl: null,
-      todayHours: '09:00-18:30',
-      operationStatus: null,
-      mapUrl: null,
-    },
-  ],
-};
 
 export const MOCK_ANALYSIS_RESULT: AnalysisResult = {
   analysisId: 5,
