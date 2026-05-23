@@ -14,7 +14,7 @@ const HospitalPage = (): React.ReactElement => {
   const [sortType, setSortType] = useState<HospitalSortType>('recommended');
   const [selectedPetId, setSelectedPetId] = useState<number | null>(null);
 
-  const { data: pets = [], isPending: isPetListPending } = usePetList();
+  const { data: pets = [], isPending: isPetListPending, isError: isPetListError } = usePetList();
   const { coordinates, isLocationLoading, isLocationDenied } = useGeoLocation();
 
   const recommendCoords = sortType === 'recommended' ? coordinates : null;
@@ -31,6 +31,10 @@ const HospitalPage = (): React.ReactElement => {
   const data = sortType === 'recommended' ? recommendData : nearbyData;
   const isLoading =
     isLocationLoading || (sortType === 'recommended' ? isRecommendLoading : isNearbyLoading);
+
+  if (isPetListError) {
+    return <NoPetFallback description="반려견 정보를 불러오지 못했어요. 다시 시도해 주세요" />;
+  }
 
   if (!isPetListPending && pets.length === 0) {
     return <NoPetFallback description="반려견을 등록하고 맞춤 병원을 찾아보세요" />;
