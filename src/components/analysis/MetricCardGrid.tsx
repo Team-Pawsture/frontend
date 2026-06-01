@@ -1,23 +1,18 @@
 import { RISK_LEVEL_LABEL, RISK_LEVEL_VARIANT } from '@/constants/analysis';
-import type { AnalysisResult } from '@/types/analysis.types';
+import type { AnalysisPrediction } from '@/types/analysis.types';
 
 import { MetricCard } from './MetricCard';
 
 type MetricCardGridProps = {
-  prediction: AnalysisResult['prediction'];
+  prediction: AnalysisPrediction;
 };
 
 export const MetricCardGrid = ({ prediction }: MetricCardGridProps): React.ReactElement => {
-  const { riskLevel, isUncertain, confidenceScore, suspiciousSignalScore, abnormalSignalScore } =
-    prediction;
-
-  const isSuspiciousDominant = suspiciousSignalScore > abnormalSignalScore;
-  const dominantSignalLabel = isSuspiciousDominant ? '보행 이상 의심' : '보행 이상 감지';
-  const dominantSignalScore = isSuspiciousDominant ? suspiciousSignalScore : abnormalSignalScore;
-  const dominantSignalVariant = isSuspiciousDominant ? 'warning' : ('danger' as const);
+  const { riskLevel, isUncertain, displayMetrics } = prediction;
+  const confidenceScore = displayMetrics.analysisConfidenceScore;
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-3 gap-4">
       <MetricCard
         label="슬개골 위험도"
         value={RISK_LEVEL_LABEL[riskLevel]}
@@ -35,12 +30,6 @@ export const MetricCardGrid = ({ prediction }: MetricCardGridProps): React.React
           confidenceScore === null ? 'neutral' : confidenceScore >= 50 ? 'success' : 'warning'
         }
         score={confidenceScore !== null ? `${confidenceScore}%` : undefined}
-      />
-      <MetricCard
-        label={dominantSignalLabel}
-        value={dominantSignalScore >= 50 ? '높음' : '낮음'}
-        variant={dominantSignalVariant}
-        score={`${dominantSignalScore}%`}
       />
     </div>
   );
