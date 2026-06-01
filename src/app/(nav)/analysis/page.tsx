@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { FilmingTip, VideoUploader } from '@/components/analysis';
 import { Button } from '@/components/common';
 import { NoPetFallback, PetSelector } from '@/components/pet';
+import useSubmitAnalysis from '@/hooks/analysis/useSubmitAnalysis';
 import usePetList from '@/hooks/pet/usePetList';
 
 const AnalysisPage = (): React.ReactElement => {
@@ -13,12 +14,21 @@ const AnalysisPage = (): React.ReactElement => {
   const { data: pets = [] } = usePetList();
   const [selectedPetId, setSelectedPetId] = useState<number | null>(null);
   const [videoFile, setVideoFile] = useState<File | null>(null);
+  const { mutate: submitAnalysis, isPending } = useSubmitAnalysis();
 
-  const isSubmitDisabled = selectedPetId === null || videoFile === null;
+  const isSubmitDisabled = selectedPetId === null || videoFile === null || isPending;
 
   const handleAnalyze = () => {
-    const jobId = 'mock-job-id';
-    router.push(`/analysis/${jobId}`);
+    if (selectedPetId === null || videoFile === null) return;
+
+    submitAnalysis(
+      { petId: selectedPetId, videoFile },
+      {
+        onSuccess: ({ analysisId }) => {
+          router.push(`/analysis/${analysisId}`);
+        },
+      },
+    );
   };
 
   if (pets.length === 0) {
