@@ -50,7 +50,7 @@ const AnalysisDetailPage = ({ params }: AnalysisDetailPageProps): React.ReactEle
     if (result.status === 'rejected') {
       hasAlerted.current = true;
       const reasons =
-        result.quality?.recaptureReasons.join('\n') ?? '영상 품질 문제로 분석이 거절되었습니다.';
+        result.quality?.recaptureReasons.join('\n') || '영상 품질 문제로 분석이 거절되었습니다.';
       alert(reasons);
       router.replace('/');
     }
