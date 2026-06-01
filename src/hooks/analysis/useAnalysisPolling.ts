@@ -13,6 +13,7 @@ const useAnalysisPolling = (analysisId: number): UseQueryResult<AnalysisResult> 
       return result;
     },
     refetchInterval: (query) => {
+      if (query.state.error) return false;
       const status = query.state.data?.status;
       return status && TERMINAL_STATUSES.has(status) ? false : 2500;
     },
