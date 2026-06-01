@@ -16,6 +16,12 @@ const AnalysisDetailPage = ({ params }: AnalysisDetailPageProps): React.ReactEle
   const { jobId } = React.use(params);
   const analysisId = Number(jobId);
 
+  const isValidId = !isNaN(analysisId) && analysisId > 0;
+
+  useEffect(() => {
+    if (!isValidId) router.replace('/');
+  }, [isValidId, router]);
+
   const { data: result } = useAnalysisPolling(analysisId);
   const { data: pets = [] } = usePetList();
 
