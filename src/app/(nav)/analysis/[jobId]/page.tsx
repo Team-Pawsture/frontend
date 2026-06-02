@@ -11,7 +11,7 @@ interface AnalysisDetailPageProps {
   params: Promise<{ jobId: string }>;
 }
 
-const AnalysisDetailPage = ({ params }: AnalysisDetailPageProps): React.ReactElement => {
+const AnalysisDetailPage = ({ params }: AnalysisDetailPageProps): React.ReactElement | null => {
   const router = useRouter();
   const { jobId } = React.use(params);
   const analysisId = Number(jobId);
@@ -22,7 +22,7 @@ const AnalysisDetailPage = ({ params }: AnalysisDetailPageProps): React.ReactEle
     if (!isValidId) router.replace('/');
   }, [isValidId, router]);
 
-  const { data: result } = useAnalysisPolling(analysisId);
+  const { data: result, isPending } = useAnalysisPolling(analysisId);
   const { data: pets = [] } = usePetList();
 
   const petName = pets.find((pet) => pet.petId === result?.petId)?.name ?? '반려견';
@@ -62,7 +62,9 @@ const AnalysisDetailPage = ({ params }: AnalysisDetailPageProps): React.ReactEle
     }
   }, [result, router]);
 
-  if (!result || result.status === 'queued' || result.status === 'running') {
+  if (isPending || !result) return null;
+
+  if (result?.status === 'queued' || result?.status === 'running') {
     return (
       <div className="flex flex-col px-5">
         <AnalysisLoading petName={petName} progress={progress} />

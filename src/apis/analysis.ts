@@ -2,6 +2,7 @@ import { httpClient } from '@/apis/client';
 import type {
   AnalysisCreateResult,
   AnalysisResult,
+  RecentAnalysisItem,
   VideoUploadResult,
 } from '@/types/analysis.types';
 
@@ -18,3 +19,6 @@ export const requestAnalysis = (petId: number, videoId: number): Promise<Analysi
 
 export const getAnalysis = (analysisId: number): Promise<AnalysisResult> =>
   httpClient.get<AnalysisResult>(`/analyses/${analysisId}`);
+
+export const getRecentAnalyses = (): Promise<RecentAnalysisItem[]> =>
+  httpClient.get<RecentAnalysisItem[]>('/analyses/recent?limit=5');
