@@ -51,6 +51,14 @@ export interface AnalysisHistoryItem {
   confidenceScore: number;
 }
 
+export interface RecentAnalysisItem {
+  analysisId: number;
+  petId: number;
+  petName: string;
+  riskLevel: RiskLevel;
+  createdAt: string;
+}
+
 export interface VideoUploadResult {
   videoId: number;
   videoUrl: string;
