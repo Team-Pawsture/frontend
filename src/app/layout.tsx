@@ -8,6 +8,7 @@ import Providers from './providers';
 export const metadata: Metadata = {
   title: 'Pawsture',
   description: '반려견 슬개골 탈구 방지 걸음 분석 서비스',
+  manifest: '/manifest.json',
 };
 
 const pretendard = localFont({
