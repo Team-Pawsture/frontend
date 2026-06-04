@@ -86,6 +86,32 @@ export interface PetAnalysisListResponse {
   offset: number;
 }
 
+export interface Keypoint {
+  keypointName: string;
+  canonicalName: string;
+  keypointIndex: number | null;
+  x: number | null;
+  y: number | null;
+  confidence: number;
+}
+
+export interface KeypointFrame {
+  frameIndex: number;
+  keypoints: Keypoint[];
+}
+
+export interface KeypointsResponse {
+  jobId: string;
+  parentJobId: string;
+  source: string;
+  totalFrameCount: number;
+  returnedFrameCount: number;
+  totalKeypointCount: number;
+  returnedKeypointCount: number;
+  truncated: boolean;
+  frames: KeypointFrame[];
+}
+
 export interface VideoUploadResult {
   videoId: number;
   videoUrl: string;

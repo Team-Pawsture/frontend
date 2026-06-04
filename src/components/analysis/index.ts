@@ -1,5 +1,6 @@
 export { AnalysisHistoryCard } from './AnalysisHistoryCard';
 export { AnalysisLoading } from './AnalysisLoading';
+export { AnalysisVideoPlayer } from './AnalysisVideoPlayer';
 export { FilmingTip } from './FilmingTip';
 export { MetricCard } from './MetricCard';
 export { MetricCardGrid } from './MetricCardGrid';
