@@ -85,7 +85,6 @@ const drawSkeleton = (
 const AnalysisVideoPlayer = ({ videoUrl, analysisId }: Props): React.ReactElement => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rafRef = useRef<number>(0);
 
   const { data: keypointsData } = useKeypoints(analysisId);
 
@@ -101,12 +100,14 @@ const AnalysisVideoPlayer = ({ videoUrl, analysisId }: Props): React.ReactElemen
   }, [keypointsData]);
 
   useEffect(() => {
-    const draw = (): void => {
-      rafRef.current = requestAnimationFrame(draw);
+    const video = videoRef.current;
+    if (!video) return;
 
-      const video = videoRef.current;
+    let rafId = 0;
+
+    const render = (): void => {
       const canvas = canvasRef.current;
-      if (!video || !canvas) return;
+      if (!canvas) return;
 
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
@@ -166,8 +167,35 @@ const AnalysisVideoPlayer = ({ videoUrl, analysisId }: Props): React.ReactElemen
       }
     };
 
-    rafRef.current = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(rafRef.current);
+    const loop = (): void => {
+      render();
+      rafId = requestAnimationFrame(loop);
+    };
+
+    const startLoop = (): void => {
+      cancelAnimationFrame(rafId);
+      loop();
+    };
+
+    const stopLoop = (): void => {
+      cancelAnimationFrame(rafId);
+      render();
+    };
+
+    video.addEventListener('play', startLoop);
+    video.addEventListener('pause', stopLoop);
+    video.addEventListener('ended', stopLoop);
+    video.addEventListener('seeked', render);
+
+    render();
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      video.removeEventListener('play', startLoop);
+      video.removeEventListener('pause', stopLoop);
+      video.removeEventListener('ended', stopLoop);
+      video.removeEventListener('seeked', render);
+    };
   }, []);
 
   return (
