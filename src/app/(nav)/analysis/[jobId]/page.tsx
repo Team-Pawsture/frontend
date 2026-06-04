@@ -98,7 +98,7 @@ const AnalysisDetailPage = (): React.ReactElement | null => {
         <MetricCardGrid prediction={displayMetrics} />
         {needsSideUpload && isFromSubmit && (
           <>
-            <p className="body2 my-4 rounded-lg bg-yellow-50 px-4 py-3 text-yellow-600">
+            <p className="body2 my-4 rounded-lg bg-yellow-50 px-4 pb-3 text-yellow-300">
               {decisionCode === 'SIDE_UPLOAD_REQUIRED'
                 ? '정확한 분석을 위해 측면 영상이 필요합니다. 측면 산책 영상을 업로드해 주세요.'
                 : '더 정확한 분석을 위해 측면 영상 업로드를 권장합니다.'}
@@ -113,9 +113,9 @@ const AnalysisDetailPage = (): React.ReactElement | null => {
         )}
         {isFusionResult && (
           <>
-            <h2 className="subhead3 my-2 text-gray-400">보행 관찰 결과</h2>
+            <h2 className="subhead3 mb-2 text-gray-400">보행 관찰 결과</h2>
             {message && (
-              <p className="body2 rounded-lg bg-gray-100 px-4 py-3 text-gray-400">{message}</p>
+              <p className="body2 rounded-lg bg-yellow-100 px-4 py-3 text-yellow-300">{message}</p>
             )}
             <h2 className="subhead3 my-2 text-gray-400">맞춤 솔루션</h2>
             <div className="mb-3 flex flex-col gap-3">

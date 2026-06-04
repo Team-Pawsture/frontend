@@ -4,8 +4,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 import { AnalysisHistoryCard } from '@/components/analysis';
 import { PetSelector } from '@/components/pet';
+import useAnalysisHistory from '@/hooks/analysis/useAnalysisHistory';
 import usePetList from '@/hooks/pet/usePetList';
-import { MOCK_ANALYSIS_HISTORY_LIST } from '@/mocks';
 
 const MyPage = (): React.ReactElement => {
   const router = useRouter();
@@ -19,7 +19,7 @@ const MyPage = (): React.ReactElement => {
   };
 
   const selectedPet = pets.find((pet) => pet.petId === selectedPetId);
-  const filteredHistory = MOCK_ANALYSIS_HISTORY_LIST.filter((item) => item.petId === selectedPetId);
+  const { data: analysisHistory } = useAnalysisHistory(selectedPetId);
 
   return (
     <div className="flex flex-col gap-6 pb-6">
@@ -34,18 +34,18 @@ const MyPage = (): React.ReactElement => {
           <h2 className="subhead3 text-gray-400">분석 기록</h2>
           {selectedPet && (
             <p className="body2 text-gray-300">
-              {selectedPet.name} 총 <span className="text-primary">{filteredHistory.length}</span>건
+              {selectedPet.name} 총 <span className="text-primary">{analysisHistory.length}</span>건
             </p>
           )}
         </div>
-        {filteredHistory.length === 0 ? (
+        {analysisHistory.length === 0 ? (
           <p className="body2 py-8 text-center text-gray-300">
             아직 분석 기록이 없어요. 영상을 분석해 보세요!
           </p>
         ) : (
           <div className="flex flex-col gap-3">
-            {filteredHistory.map((item) => (
-              <AnalysisHistoryCard key={item.jobId} item={item} />
+            {analysisHistory.map((item) => (
+              <AnalysisHistoryCard key={item.analysisId} item={item} />
             ))}
           </div>
         )}

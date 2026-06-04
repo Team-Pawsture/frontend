@@ -16,7 +16,7 @@ export const MetricCardGrid = ({ prediction }: MetricCardGridProps): React.React
   const { patellaRisk, analysisConfidence, recaptureRequired, gaitAbnormality } = prediction;
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="mb-3 grid grid-cols-2 gap-4">
       <MetricCard
         label="슬개골 위험도"
         value={PATELLA_RISK_LABEL[patellaRisk.level] ?? patellaRisk.level}
@@ -25,7 +25,7 @@ export const MetricCardGrid = ({ prediction }: MetricCardGridProps): React.React
       <MetricCard
         label="재촬영 권장"
         value={recaptureRequired.value ? '필요' : '불필요'}
-        variant={recaptureRequired.value ? 'warning' : 'success'}
+        variant={recaptureRequired.value ? 'danger' : 'success'}
       />
       <MetricCard
         label="분석 신뢰도"

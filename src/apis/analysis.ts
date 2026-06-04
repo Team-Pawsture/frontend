@@ -3,6 +3,7 @@ import type {
   AnalysisCreateResult,
   AnalysisRequestParams,
   AnalysisResult,
+  PetAnalysisListResponse,
   RecentAnalysisItem,
   VideoUploadResult,
 } from '@/types/analysis.types';
@@ -33,3 +34,12 @@ export const getAnalysis = (analysisId: number): Promise<AnalysisResult> =>
 
 export const getRecentAnalyses = (): Promise<RecentAnalysisItem[]> =>
   httpClient.get<RecentAnalysisItem[]>('/analyses/recent?limit=5');
+
+export const getAnalysesByPet = (
+  petId: number,
+  limit = 20,
+  offset = 0,
+): Promise<AnalysisResult[]> =>
+  httpClient
+    .get<PetAnalysisListResponse>(`/analyses?pet_id=${petId}&limit=${limit}&offset=${offset}`)
+    .then((res) => res.items);
