@@ -32,7 +32,6 @@ const HospitalPage = (): React.ReactElement => {
   const isLoading =
     isLocationLoading || (sortType === 'recommended' ? isRecommendLoading : isNearbyLoading);
 
-  console.log('data', data);
   if (isPetListError) {
     return <NoPetFallback description="반려견 정보를 불러오지 못했어요. 다시 시도해 주세요" />;
   }
