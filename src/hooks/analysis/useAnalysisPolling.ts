@@ -1,15 +1,20 @@
-import { useQuery, type UseQueryResult } from '@tanstack/react-query';
+import { useQuery, useQueryClient, type UseQueryResult } from '@tanstack/react-query';
 
 import { getAnalysis } from '@/apis/analysis';
 import type { AnalysisResult, AnalysisStatus } from '@/types/analysis.types';
 
 const TERMINAL_STATUSES = new Set<AnalysisStatus>(['completed', 'rejected', 'failed']);
 
-const useAnalysisPolling = (analysisId: number): UseQueryResult<AnalysisResult> =>
-  useQuery({
+const useAnalysisPolling = (analysisId: number): UseQueryResult<AnalysisResult> => {
+  const queryClient = useQueryClient();
+
+  return useQuery({
     queryKey: ['analysis', analysisId],
     queryFn: async () => {
       const result = await getAnalysis(analysisId);
+      if (TERMINAL_STATUSES.has(result.status)) {
+        queryClient.invalidateQueries({ queryKey: ['analyses', 'recent'] });
+      }
       return result;
     },
     refetchInterval: (query) => {
@@ -19,5 +24,6 @@ const useAnalysisPolling = (analysisId: number): UseQueryResult<AnalysisResult> 
     },
     enabled: !isNaN(analysisId) && analysisId > 0,
   });
+};
 
 export default useAnalysisPolling;

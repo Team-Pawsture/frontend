@@ -1,4 +1,9 @@
-import { RISK_LEVEL_LABEL, RISK_LEVEL_VARIANT } from '@/constants/analysis';
+import {
+  CONFIDENCE_LEVEL_LABEL,
+  CONFIDENCE_LEVEL_VARIANT,
+  PATELLA_RISK_LABEL,
+  PATELLA_RISK_VARIANT,
+} from '@/constants/analysis';
 import type { AnalysisPrediction } from '@/types/analysis.types';
 
 import { MetricCard } from './MetricCard';
@@ -8,28 +13,31 @@ type MetricCardGridProps = {
 };
 
 export const MetricCardGrid = ({ prediction }: MetricCardGridProps): React.ReactElement => {
-  const { riskLevel, isUncertain, displayMetrics } = prediction;
-  const confidenceScore = displayMetrics.analysisConfidenceScore;
+  const { patellaRisk, analysisConfidence, recaptureRequired, gaitAbnormality } = prediction;
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 gap-4">
       <MetricCard
         label="슬개골 위험도"
-        value={RISK_LEVEL_LABEL[riskLevel]}
-        variant={RISK_LEVEL_VARIANT[riskLevel]}
+        value={PATELLA_RISK_LABEL[patellaRisk.level] ?? patellaRisk.level}
+        variant={PATELLA_RISK_VARIANT[patellaRisk.level] ?? 'neutral'}
       />
       <MetricCard
         label="재촬영 권장"
-        value={isUncertain ? '필요' : '불필요'}
-        variant={isUncertain ? 'warning' : 'success'}
+        value={recaptureRequired.value ? '필요' : '불필요'}
+        variant={recaptureRequired.value ? 'warning' : 'success'}
       />
       <MetricCard
         label="분석 신뢰도"
-        value={confidenceScore === null ? '판단 불가' : confidenceScore >= 50 ? '높음' : '낮음'}
-        variant={
-          confidenceScore === null ? 'neutral' : confidenceScore >= 50 ? 'success' : 'warning'
-        }
-        score={confidenceScore !== null ? `${confidenceScore}%` : undefined}
+        value={CONFIDENCE_LEVEL_LABEL[analysisConfidence.level] ?? analysisConfidence.level}
+        variant={CONFIDENCE_LEVEL_VARIANT[analysisConfidence.level] ?? 'neutral'}
+        score={`${analysisConfidence.score}%`}
+      />
+      <MetricCard
+        label="보행 이상 의심"
+        value={PATELLA_RISK_LABEL[gaitAbnormality.level] ?? gaitAbnormality.level}
+        variant={PATELLA_RISK_VARIANT[gaitAbnormality.level] ?? 'neutral'}
+        score={`${gaitAbnormality.score}%`}
       />
     </div>
   );
