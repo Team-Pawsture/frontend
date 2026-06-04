@@ -1,6 +1,7 @@
 import { httpClient } from '@/apis/client';
 import type {
   AnalysisCreateResult,
+  AnalysisRequestParams,
   AnalysisResult,
   RecentAnalysisItem,
   VideoUploadResult,
@@ -14,8 +15,18 @@ export const uploadVideo = (petId: number, video: File): Promise<VideoUploadResu
   return httpClient.post<VideoUploadResult>('/videos', formData);
 };
 
-export const requestAnalysis = (petId: number, videoId: number): Promise<AnalysisCreateResult> =>
-  httpClient.post<AnalysisCreateResult>('/analyses', { pet_id: petId, video_id: videoId });
+export const requestAnalysis = ({
+  petId,
+  videoId,
+  analysisStage,
+  parentAnalysisId,
+}: AnalysisRequestParams): Promise<AnalysisCreateResult> =>
+  httpClient.post<AnalysisCreateResult>('/analyses', {
+    pet_id: petId,
+    video_id: videoId,
+    ...(analysisStage !== undefined && { analysis_stage: analysisStage }),
+    ...(parentAnalysisId !== undefined && { parent_analysis_id: parentAnalysisId }),
+  });
 
 export const getAnalysis = (analysisId: number): Promise<AnalysisResult> =>
   httpClient.get<AnalysisResult>(`/analyses/${analysisId}`);
