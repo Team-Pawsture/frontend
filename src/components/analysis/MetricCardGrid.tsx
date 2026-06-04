@@ -16,7 +16,7 @@ export const MetricCardGrid = ({ prediction }: MetricCardGridProps): React.React
   const { patellaRisk, analysisConfidence, recaptureRequired, gaitAbnormality } = prediction;
 
   return (
-    <div className="mb-3 grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-4">
       <MetricCard
         label="슬개골 위험도"
         value={PATELLA_RISK_LABEL[patellaRisk.level] ?? patellaRisk.level}
