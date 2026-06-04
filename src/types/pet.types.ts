@@ -31,15 +31,24 @@ export type MedicalHistory =
   | 'OBESITY'
   | 'OTHER';
 
-export interface Pet {
+export type Pet = {
   petId: number;
+  name: string;
+  birthDate: string;
+  breed: Breed;
+  gender: Gender;
+  weight: number;
+  profileImageUrl: string | null;
+};
+
+export type RegisterPetRequest = {
   name: string;
   birthDate: string;
   breed: Breed;
   breedEtc?: string;
   gender: Gender;
   weight: number;
-  profileImageUrl: string | null;
   medicalHistory: MedicalHistory[];
   medicalHistoryEtc?: string;
-}
+  image?: File;
+};

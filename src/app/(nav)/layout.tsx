@@ -1,4 +1,4 @@
-import { BottomNav } from '@/components/common/BottomNav';
+import { AuthGuard, BottomNav } from '@/components/common';
 import { Header } from '@/components/common/Header';
 
 type NavLayoutProps = {
@@ -7,11 +7,13 @@ type NavLayoutProps = {
 
 const NavLayout = ({ children }: NavLayoutProps): React.ReactElement => {
   return (
-    <div className="flex flex-1 flex-col">
-      <Header />
-      <main className="scrollbar-hide flex flex-1 flex-col">{children}</main>
-      <BottomNav />
-    </div>
+    <AuthGuard>
+      <div className="flex flex-1 flex-col">
+        <Header />
+        <main className="scrollbar-hide flex flex-1 flex-col">{children}</main>
+        <BottomNav />
+      </div>
+    </AuthGuard>
   );
 };
 

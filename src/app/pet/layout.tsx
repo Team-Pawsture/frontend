@@ -1,3 +1,4 @@
+import { AuthGuard } from '@/components/common';
 import { Header } from '@/components/common/Header';
 
 type PetLayoutProps = {
@@ -6,10 +7,12 @@ type PetLayoutProps = {
 
 const PetLayout = ({ children }: PetLayoutProps): React.ReactElement => {
   return (
-    <div className="flex flex-1 flex-col">
-      <Header />
-      <main className="scrollbar-hide flex flex-1 flex-col">{children}</main>
-    </div>
+    <AuthGuard>
+      <div className="flex flex-1 flex-col">
+        <Header />
+        <main className="scrollbar-hide flex flex-1 flex-col">{children}</main>
+      </div>
+    </AuthGuard>
   );
 };
 
