@@ -3,7 +3,12 @@
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 
-import { AnalysisLoading, MetricCardGrid, SolutionCard } from '@/components/analysis';
+import {
+  AnalysisLoading,
+  AnalysisVideoPlayer,
+  MetricCardGrid,
+  SolutionCard,
+} from '@/components/analysis';
 import { Button } from '@/components/common';
 import useAnalysisPolling from '@/hooks/analysis/useAnalysisPolling';
 import usePetList from '@/hooks/pet/usePetList';
@@ -88,10 +93,9 @@ const AnalysisDetailPage = (): React.ReactElement | null => {
     return (
       <div className="flex flex-col px-5">
         {result.videoUrl && (
-          <video
-            src={`${process.env.NEXT_PUBLIC_API_BASE_URL}${result.videoUrl}`}
-            controls
-            className="w-full rounded-lg"
+          <AnalysisVideoPlayer
+            videoUrl={`${process.env.NEXT_PUBLIC_API_BASE_URL}${result.videoUrl}`}
+            analysisId={analysisId}
           />
         )}
         <h2 className="subhead3 my-2 text-gray-400">분석 요약</h2>

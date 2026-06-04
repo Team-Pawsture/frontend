@@ -3,6 +3,7 @@ import type {
   AnalysisCreateResult,
   AnalysisRequestParams,
   AnalysisResult,
+  KeypointsResponse,
   PetAnalysisListResponse,
   RecentAnalysisItem,
   VideoUploadResult,
@@ -34,6 +35,9 @@ export const getAnalysis = (analysisId: number): Promise<AnalysisResult> =>
 
 export const getRecentAnalyses = (): Promise<RecentAnalysisItem[]> =>
   httpClient.get<RecentAnalysisItem[]>('/analyses/recent?limit=5');
+
+export const getKeypoints = (analysisId: number): Promise<KeypointsResponse> =>
+  httpClient.get<KeypointsResponse>(`/analyses/${analysisId}/keypoints`);
 
 export const getAnalysesByPet = (
   petId: number,
