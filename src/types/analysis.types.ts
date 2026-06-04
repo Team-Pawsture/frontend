@@ -71,6 +71,21 @@ export interface RecentAnalysisItem {
   createdAt: string;
 }
 
+export interface PetAnalysisItem {
+  analysisId: number;
+  petId: number;
+  riskLevel: RiskLevel;
+  createdAt: string;
+  confidenceScore?: number;
+}
+
+export interface PetAnalysisListResponse {
+  items: AnalysisResult[];
+  total: number;
+  limit: number;
+  offset: number;
+}
+
 export interface VideoUploadResult {
   videoId: number;
   videoUrl: string;
