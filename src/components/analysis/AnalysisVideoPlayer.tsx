@@ -12,34 +12,34 @@ type Props = {
 
 const SKELETON_CONNECTIONS: [string, string][] = [
   // 상체
-  ['ear', 'scapula'],
-  ['scapula', 't13'],
-  ['t13', 'ilium'],
-  ['ilium', 'hip'],
+  ['ear', 'dorsal_scapular_spine'],
+  ['dorsal_scapular_spine', 't13_spinous_process'],
+  ['t13_spinous_process', 'iliac_crest'],
+  ['iliac_crest', 'hip'],
   // 전지
-  ['scapula', 'shoulder'],
+  ['dorsal_scapular_spine', 'shoulder'],
   ['shoulder', 'elbow'],
   ['elbow', 'wrist'],
-  ['wrist', 'f_paw'],
+  ['wrist', 'front_paw'],
   // 후지
   ['hip', 'knee'],
   ['knee', 'hock'],
-  ['hock', 'h_paw'],
+  ['hock', 'hind_paw'],
 ];
 
 const KEYPOINT_COLORS: Record<string, string> = {
   ear: '#FF6B6B',
-  scapula: '#6BCB77',
-  t13: '#6BCB77',
-  ilium: '#6BCB77',
+  dorsal_scapular_spine: '#6BCB77',
+  t13_spinous_process: '#6BCB77',
+  iliac_crest: '#6BCB77',
   shoulder: '#FFD93D',
   elbow: '#FFD93D',
   wrist: '#FFD93D',
-  f_paw: '#FFD93D',
+  front_paw: '#FFD93D',
   hip: '#4D96FF',
   knee: '#4D96FF',
   hock: '#4D96FF',
-  h_paw: '#4D96FF',
+  hind_paw: '#4D96FF',
 };
 
 const drawSkeleton = (
